@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="button">
+        <h1>Random Numbers for Free</h1>
+        <p>Please take a number.</p>
+        <div class="randomness"></div>
+    </div>
+
+    <style>
+        .button {
+            position: relative;
+            max-width: 150px;
+            text-align: center;
+            margin: 0 auto;
+            color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            border: dotted;
+            border-radius: 10px;
+        }
+
+        .button.clicked {
+            color: lightcoral;
+            border: solid;
+
+        }
+    </style>
+
+    <script>
+        const myButton = document.querySelector('.button');
+        const randomNess = document.querySelector('.randomness');
+
+        function handleClick() {
+            const gimmeNumber = Math.floor(Math.random() * 1000);
+            myButton.classList.toggle('clicked');
+            randomNess.innerHTML = `<p>${gimmeNumber}</p>`;
+        }
+
+        myButton.addEventListener('click', handleClick);
+
+    </script>
+    <!-- <script src="./practice.js"></script> -->
+</body>
+
+</html>

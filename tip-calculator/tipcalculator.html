@@ -54,6 +54,12 @@
             <option value="8">8</option>
         </select>
 
+        <div class="taxSection">
+            <input class="formItem" type="number" placeholder="Enter Tax Amount" id="taxAmount">
+            <input class="formItem" type="number" placeholder="Enter Tax Rate" id="taxRate">
+        </div>
+
+
         <select name="state" class="formItem" id="state">
             <option value="">Select your State</option>
             <option value="arizona">Arizona</option>
@@ -65,9 +71,18 @@
             <option value="washington" selected>Washington</option>
         </select>
 
+        <!-- <input type="radio" id="contactChoice1" name="contact" value="email" checked>
+        <label for="contactChoice1">Email</label>
+
+        <input type="radio" id="contactChoice2" name="contact" value="phone">
+        <label for="contactChoice2">Phone</label> -->
+
+
         <!-- <button type="button" onclick="getBillAmount();">Calculate</button> -->
         <button class="formItem" type="button" id="goButton">Calculate</button>
     </form>
+
+    <input type="checkbox" id="switch"><label for="switch">Toggle</label>
 
     <div>
         <p class="output"></p>
@@ -84,6 +99,14 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .taxSection {
+            display: none;
+        }
+
+        .iAmOn {
+            display: inline;
         }
 
         .formItem {
@@ -104,6 +127,57 @@
         button {
             background-color: orange;
         }
+
+        /* toggle switch */
+        input[type=checkbox] {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+
+        label {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 100px;
+            height: 50px;
+            background: grey;
+            display: block;
+            border-radius: 50px;
+            position: relative;
+        }
+
+        label:after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            width: 45px;
+            height: 45px;
+            background: #fff;
+            border-radius: 45px;
+            transition: 0.3s;
+        }
+
+        input:checked+label {
+            background: #bada55;
+        }
+
+        input:checked+label:after {
+            left: calc(100% - 5px);
+            transform: translateX(-100%);
+        }
+
+        label:active:after {
+            width: 65px;
+        }
+
+        /* // centering
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        } */
     </style>
 
 
@@ -122,8 +196,18 @@
         const buttonClick = document.getElementById('goButton');
 
         let selectedState = document.getElementById('state').value;
+        let taxGroup = document.querySelector('.taxSection');
         let billVal = document.getElementById("myBillInput");
         let tipVal = document.getElementById("myTipInput");
+        let taxSwitch = document.getElementById("switch");
+
+        function taxToggle() {
+            taxGroup.classList.toggle('iAmOn');
+        }
+
+        taxSwitch.addEventListener('click', taxToggle);
+
+        // console.log(taxSwitch.checked);
 
         buttonClick.addEventListener('click', getBillAmount);
 
