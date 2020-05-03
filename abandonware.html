@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+
+        <input class="formItem" type="text" placeholder="Enter tip percentage" id="myTipInput">
+
+        <input type="radio" onclick="genderCheck();" name="gender" id="gender_Male" value="Male" />
+        <input type="radio" onclick="genderCheck();" name="gender" id="gender_Female" value="Female" />
+
+        <button type="button" onclick="getBillAmount();">Calculate</button>
+
+
+        <select name="state" class="formItem" id="state">
+            <option value="">Select your State</option>
+            <option value="arizona">Arizona</option>
+            <option value="california">California</option>
+            <option value="colorado">Colorado</option>
+            <option value="idaho">Idaho</option>
+            <option value="nevada">Nevada</option>
+            <option value="utah">Utah</option>
+            <option value="washington" selected>Washington</option>
+        </select> -->
+
+        <input type="radio" id="contactChoice1" name="contact" value="email" checked>
+        <label for="contactChoice1">Email</label>
+
+        <input type="radio" id="contactChoice2" name="contact" value="phone">
+        <label for="contactChoice2">Phone</label>
+    </div>
+
+
+
+
+    <script>
+
+        // Tax values for selected state
+        if (selectedState === "california") {
+            myTax = 7.25;
+        } else if (selectedState === "idaho") {
+            myTax = 6;
+        } else if (selectedState === "oregon") {
+            myTax = 0;
+        } else if (selectedState === "washington") {
+            myTax = 6.5;
+        } else if (selectedState === "utah") {
+            myTax = 5.95;
+        } else if (selectedState === "nevada") {
+            myTax = 6.85;
+        } else if (selectedState === "arizona") {
+            myTax = 5.6;
+        } else if (selectedState === "colorado") {
+            myTax = 2.9;
+        } else {
+            myTax = 'Where exactly are you?'
+        };
+
+        //Uppercase state name value
+        let theStateYouAreIn = selectedState[0].toUpperCase() + selectedState.slice(1);
+
+
+        function genderCheck() {
+
+            if (document.getElementById('gender_Male').checked) {
+                //Male radio button is checked
+                console.log('male');
+            } else if (document.getElementById('gender_Female').checked) {
+                //Female radio button is checked
+                console.log('female');
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

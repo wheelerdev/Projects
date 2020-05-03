@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<style>
+<!-- <style>
     label {
         display: block;
         font: 1rem 'Fira Sans', sans-serif;
@@ -18,7 +18,7 @@
     label {
         margin: .4rem 0;
     }
-</style>
+</style> -->
 
 <body>
     <div>
@@ -26,17 +26,19 @@
         <p>We'll need to know your total bill (before tax), as well as the percentage you would like to pay:</p>
     </div>
 
-
+    <p>Would you like to figure in the tax?</p>
+    <input type="checkbox" id="switch"><label for="switch" class="switchLabel">Toggle</label>
 
     <form action="">
 
-        <input class="formItem" type="number" placeholder="Enter bill amount" id="myBillInput">
-        <!-- <input class="formItem" type="text" placeholder="Enter tip percentage" id="myTipInput"> -->
+        <!-- <p for="bill">Bill Amount (before tax)</p> -->
+        <input class="formItem" type="number" name="bill" placeholder="Enter bill amount" id="myBillInput" value="100">
+
 
         <select name="percent" class="formItem" id="myTipInput">
             <option value="">Select Tip Percentage</option>
-            <option value="5" selected>5%</option>
-            <option value="10">10%</option>
+            <option value="5">5%</option>
+            <option value="10" selected>10%</option>
             <option value="15">15%</option>
             <option value="20">20%</option>
             <option value="25">25%</option>
@@ -55,34 +57,37 @@
         </select>
 
         <div class="taxSection">
-            <input class="formItem" type="number" placeholder="Enter Tax Amount" id="taxAmount">
-            <input class="formItem" type="number" placeholder="Enter Tax Rate" id="taxRate">
+            <span>Enter tax by:</span>
+            <label for="taxAmountRadio">Amount</label>
+            <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();" checked>
+            <label for="taxRateRadio">Rate</label>
+            <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
+            <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount" id="tax_Amount">
+            <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate"
+                style="display: none;">
         </div>
 
+        <!-- Original: -->
+        <!-- <div class="taxSection">
+            <span>Enter tax by:</span>
+            <div class="taxInput">
+                <label for="taxAmountRadio">Amount</label>
+                <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();">
+                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount"
+                    id="tax_Amount">
+            </div>
+            <div class="taxInput">
+                <label for="taxRateRadio">Rate</label>
+                <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
+                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate">
+            </div>
+        </div> -->
 
-        <select name="state" class="formItem" id="state">
-            <option value="">Select your State</option>
-            <option value="arizona">Arizona</option>
-            <option value="california">California</option>
-            <option value="colorado">Colorado</option>
-            <option value="idaho">Idaho</option>
-            <option value="nevada">Nevada</option>
-            <option value="utah">Utah</option>
-            <option value="washington" selected>Washington</option>
-        </select>
-
-        <!-- <input type="radio" id="contactChoice1" name="contact" value="email" checked>
-        <label for="contactChoice1">Email</label>
-
-        <input type="radio" id="contactChoice2" name="contact" value="phone">
-        <label for="contactChoice2">Phone</label> -->
-
-
-        <!-- <button type="button" onclick="getBillAmount();">Calculate</button> -->
-        <button class="formItem" type="button" id="goButton">Calculate</button>
     </form>
 
-    <input type="checkbox" id="switch"><label for="switch">Toggle</label>
+    <div class="theButton">
+        <button class="formItem" type="button" id="goButton">Calculate</button>
+    </div>
 
     <div>
         <p class="output"></p>
@@ -94,6 +99,20 @@
             color: #222222;
         }
 
+        /* label {
+            display: block;
+        } */
+
+        /* input,
+        label {
+            margin: .4rem 0;
+        } */
+
+        /* p {
+            font-size: .8em;
+            margin-bottom: 0;
+        } */
+
         form {
             background-color: lightgray;
             display: flex;
@@ -103,6 +122,10 @@
 
         .taxSection {
             display: none;
+        }
+
+        .taxInput {
+            display: inline-block;
         }
 
         .iAmOn {
@@ -124,6 +147,11 @@
             color: red;
         }
 
+        .theButton {
+            display: flex;
+            justify-content: center;
+        }
+
         button {
             background-color: orange;
         }
@@ -135,7 +163,7 @@
             visibility: hidden;
         }
 
-        label {
+        .switchLabel {
             cursor: pointer;
             text-indent: -9999px;
             width: 100px;
@@ -146,7 +174,7 @@
             position: relative;
         }
 
-        label:after {
+        .switchLabel:after {
             content: '';
             position: absolute;
             top: 3px;
@@ -158,7 +186,7 @@
             transition: 0.3s;
         }
 
-        input:checked+label {
+        input[type=checkbox]:checked+label {
             background: #bada55;
         }
 
@@ -167,7 +195,7 @@
             transform: translateX(-100%);
         }
 
-        label:active:after {
+        .switchLabel:active:after {
             width: 65px;
         }
 
@@ -181,100 +209,85 @@
     </style>
 
 
-    <script>
-
-        // To Do
-        // -sort out more elegant way to figure state tax; loop over object etc
-        // -secure from XSS?
-        // -pre-tax/post/tax selector
-
-        let myTax;
-        let peopleCount;
-        let ifPeople;
-
-        const printedOutput = document.querySelector('.output');
-        const buttonClick = document.getElementById('goButton');
-
-        let selectedState = document.getElementById('state').value;
-        let taxGroup = document.querySelector('.taxSection');
-        let billVal = document.getElementById("myBillInput");
-        let tipVal = document.getElementById("myTipInput");
-        let taxSwitch = document.getElementById("switch");
-
-        function taxToggle() {
-            taxGroup.classList.toggle('iAmOn');
-        }
-
-        taxSwitch.addEventListener('click', taxToggle);
-
-        // console.log(taxSwitch.checked);
-
-        buttonClick.addEventListener('click', getBillAmount);
-
-
-        // Currency will show a string with commas and digits to the hundredth place.
-        function currencyFormat(num) {
-            return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        }
-
-        function getBillAmount() {
-
-            // Tax values for selected state
-            if (selectedState === "california") {
-                myTax = 7.25;
-            } else if (selectedState === "idaho") {
-                myTax = 6;
-            } else if (selectedState === "oregon") {
-                myTax = 0;
-            } else if (selectedState === "washington") {
-                myTax = 6.5;
-            } else if (selectedState === "utah") {
-                myTax = 5.95;
-            } else if (selectedState === "nevada") {
-                myTax = 6.85;
-            } else if (selectedState === "arizona") {
-                myTax = 5.6;
-            } else if (selectedState === "colorado") {
-                myTax = 2.9;
-            } else {
-                myTax = 'Where exactly are you?'
-            };
-
-            // Uppercase state name value
-            let theStateYouAreIn = selectedState[0].toUpperCase() + selectedState.slice(1);
-            let tipAmount = Math.floor((billVal.value * `0.${tipVal.value}`) * 100) / 100;
-            let billPlusTip = Math.floor((billVal.value * `1.${tipVal.value}`) * 100) / 100;
-            peopleCount = document.getElementById("people").value;
+    <script src="./tipcalculator.js">
 
 
 
-            if (peopleCount >= 2) {
-                ifPeople = 'per person ';
-            } else {
-                ifPeople = "";
-            }
+        // // To Do
+        // // -sort out more elegant way to figure state tax; loop over object etc
+        // // -secure from XSS?
+        // // -pre-tax/post/tax selector
 
-            // Form validation logic
-            if ((tipVal.value == '') && (billVal.value == '')) {
-                tipVal.classList.add('textBoxWarn');
-                billVal.classList.add('textBoxWarn');
-                printedOutput.innerHTML = `Select bill amount & tip percentage`;
-            } else if (billVal.value == '') {
-                billVal.classList.add('textBoxWarn');
-                tipVal.classList.remove('textBoxWarn');
-                billVal.focus();
-                printedOutput.innerHTML = `Enter bill amount`;
-            } else if (tipVal.value == '') {
-                tipVal.classList.add('textBoxWarn');
-                tipVal.focus();
-                printedOutput.innerHTML = `Select tip percentage`;
-            } else {
-                billVal.classList.remove('textBoxWarn');
-                tipVal.classList.remove('textBoxWarn');
-                printedOutput.innerHTML = `You're in ${theStateYouAreIn} where the sales tax is ${myTax}%. Your tip is ${currencyFormat(tipAmount)} and the total ${ifPeople}including tip will be ${currencyFormat(billPlusTip / peopleCount)}.`;
-                console.log(peopleCount);
-            };
-        }
+        // let myTax;
+        // let peopleCount;
+        // let ifPeople;
+
+        // const printedOutput = document.querySelector('.output');
+        // const buttonClick = document.getElementById('goButton');
+
+        // // let selectedState = document.getElementById('state').value;
+        // let taxGroup = document.querySelector('.taxSection');
+        // let billVal = document.getElementById("myBillInput");
+        // let tipVal = document.getElementById("myTipInput");
+        // let taxAmount = document.getElementById("tax_Amount")
+        // let taxRate = document.getElementById("tax_Rate")
+        // let taxSwitch = document.getElementById("switch");
+
+        // function taxToggle() {
+        //     taxGroup.classList.toggle('iAmOn');
+        // }
+
+
+
+        // taxSwitch.addEventListener('click', taxToggle);
+
+
+
+        // buttonClick.addEventListener('click', getBillAmount);
+
+
+        // // Currency will show a string with commas and digits to the hundredth place.
+        // function currencyFormat(num) {
+        //     return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        // }
+
+        // function getBillAmount() {
+
+
+        //     let tipAmount = Math.floor((billVal.value * `0.${tipVal.value}`) * 100) / 100;
+        //     let billPlusTip = Math.floor((billVal.value * `1.${tipVal.value}`) * 100) / 100;
+        //     peopleCount = document.getElementById("people").value;
+
+        //     if (peopleCount >= 2) {
+        //         ifPeople = 'per person ';
+        //     } else {
+        //         ifPeople = "";
+        //     }
+
+        //     console.log(taxAmount.value);
+        //     console.log(taxRate.value);
+
+
+        //     // Form validation logic
+        //     if ((tipVal.value == '') && (billVal.value == '')) {
+        //         tipVal.classList.add('textBoxWarn');
+        //         billVal.classList.add('textBoxWarn');
+        //         printedOutput.innerHTML = `Select bill amount & tip percentage`;
+        //     } else if (billVal.value == '') {
+        //         billVal.classList.add('textBoxWarn');
+        //         tipVal.classList.remove('textBoxWarn');
+        //         billVal.focus();
+        //         printedOutput.innerHTML = `Enter bill amount`;
+        //     } else if (tipVal.value == '') {
+        //         tipVal.classList.add('textBoxWarn');
+        //         tipVal.focus();
+        //         printedOutput.innerHTML = `Select tip percentage`;
+        //     } else {
+        //         billVal.classList.remove('textBoxWarn');
+        //         tipVal.classList.remove('textBoxWarn');
+        //         printedOutput.innerHTML = `Your tip is ${currencyFormat(tipAmount)} and the total ${ifPeople}including tip will be ${currencyFormat(billPlusTip / peopleCount)}.`;
+        //     };
+        // }
 
     </script>
 </body>
