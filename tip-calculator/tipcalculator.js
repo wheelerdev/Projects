@@ -17,8 +17,8 @@
         let taxGroup = document.querySelector('.taxSection');
         let billVal = document.getElementById("myBillInput");
         let tipVal = document.getElementById("myTipInput");
-        let taxAmount = document.getElementById("tax_Amount")
-        let taxRate = document.getElementById("tax_Rate")
+        let taxAmount = document.getElementById("tax_Amount");
+        let taxRate = document.getElementById("tax_Rate");
         let taxSwitch = document.getElementById("switch");
 
 
@@ -76,7 +76,7 @@
            
             // Plug either tax field into myTax variable
             if (taxAmount.value) {
-                myTax = taxAmount.value;
+                myTax = Number(taxAmount.value);
             } else if (taxRate.value) {
                 myTax = Math.floor((billVal.value * `0.0${taxRate.value}`) * 100) / 100;
             };
@@ -85,6 +85,7 @@
             // The two sub-variables for myTax are typeof-ing as an object? Might have to go upstream and push all the .value properties inside the original variable, hopefully resulting in a normal number type.
             ifTax = myTax ? `tax is ${currencyFormat(myTax)} and your ` : '';
 
+            console.log(typeof(taxAmount.value));
             console.log(taxAmount.value);
             console.log(taxRate.value);
 
@@ -110,6 +111,6 @@
             } else {
                 billVal.classList.remove('textBoxWarn');
                 tipVal.classList.remove('textBoxWarn');
-                printedOutput.innerHTML = `Your ${ifTax}tip is ${currencyFormat(tipAmount)} and the total ${ifPeople}including tip will be ${currencyFormat(billPlusTip / peopleCount)}.`;
+                printedOutput.innerHTML = `Your ${ifTax}tip is ${currencyFormat(tipAmount)}. The total ${ifPeople}including tip will be ${currencyFormat((billPlusTip + myTax) / peopleCount)}.`;
             };
         }
