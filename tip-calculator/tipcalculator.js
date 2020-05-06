@@ -8,6 +8,7 @@
         let myTax;
         let peopleCount;
         let ifPeople;
+        let ifTax;
 
         const printedOutput = document.querySelector('.output');
         const buttonClick = document.getElementById('goButton');
@@ -25,6 +26,10 @@
             taxGroup.classList.toggle('iAmOn');
         }
 
+
+        // -while taxSection is open:
+        // -switch which input field is visible
+        // -clear opposite field on change of focus
         function showCorrectTaxField() {
             let taxAmountChecked = document.getElementById("taxAmountRadio");
             let taxRateChecked = document.getElementById('taxRateRadio');
@@ -68,9 +73,24 @@
             } else {
                 ifPeople = "";
             }
+           
+            // Plug either tax field into myTax variable
+            if (taxAmount.value) {
+                myTax = taxAmount.value;
+            } else if (taxRate.value) {
+                myTax = Math.floor((billVal.value * `0.0${taxRate.value}`) * 100) / 100;
+            };
+
+            // Okay so currencyFormat is breaking all of this specifically for myTax. 
+            // The two sub-variables for myTax are typeof-ing as an object? Might have to go upstream and push all the .value properties inside the original variable, hopefully resulting in a normal number type.
+            ifTax = myTax ? `tax is ${currencyFormat(myTax)} and your ` : '';
 
             console.log(taxAmount.value);
             console.log(taxRate.value);
+
+
+            console.log(myTax);
+            
 
 
             // Form validation logic
@@ -90,6 +110,6 @@
             } else {
                 billVal.classList.remove('textBoxWarn');
                 tipVal.classList.remove('textBoxWarn');
-                printedOutput.innerHTML = `Your tip is ${currencyFormat(tipAmount)} and the total ${ifPeople}including tip will be ${currencyFormat(billPlusTip / peopleCount)}.`;
+                printedOutput.innerHTML = `Your ${ifTax}tip is ${currencyFormat(tipAmount)} and the total ${ifPeople}including tip will be ${currencyFormat(billPlusTip / peopleCount)}.`;
             };
         }
