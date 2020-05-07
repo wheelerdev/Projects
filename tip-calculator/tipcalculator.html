@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tip Calculator</title>
 </head>
 
 <!-- <style>
@@ -157,6 +157,13 @@
         }
 
         /* toggle switch */
+        /* Variables */
+
+        :root {
+            --main-size: 1.5rem;
+            --secondary-size: 1.2rem;
+        }
+
         input[type=checkbox] {
             height: 0;
             width: 0;
@@ -166,37 +173,41 @@
         .switchLabel {
             cursor: pointer;
             text-indent: -9999px;
-            width: 100px;
-            height: 50px;
+            width: 45px;
+            /* height: 50px; */
+            height: var(--main-size);
             background: grey;
             display: block;
-            border-radius: 50px;
+            border-radius: var(--main-size);
             position: relative;
         }
 
         .switchLabel:after {
             content: '';
             position: absolute;
-            top: 3px;
-            left: 5px;
-            width: 45px;
-            height: 45px;
+            top: 2.45px;
+            left: 3px;
+            /* width: 45px; */
+            width: var(--secondary-size);
+            height: var(--secondary-size);
+            /* height: 45px; */
             background: #fff;
-            border-radius: 45px;
+            /* border-radius: 45px; */
+            border-radius: var(--secondary-size);
             transition: 0.3s;
         }
 
         input[type=checkbox]:checked+label {
-            background: #bada55;
+            background: red;
         }
 
         input:checked+label:after {
-            left: calc(100% - 5px);
+            left: calc(100% - 3px);
             transform: translateX(-100%);
         }
 
         .switchLabel:active:after {
-            width: 65px;
+            width: 1.5rem;
         }
 
         /* // centering
