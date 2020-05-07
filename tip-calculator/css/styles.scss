@@ -1,0 +1,162 @@
+
+
+// Reset
+
+html,
+body,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p,
+ul {
+  height: 100%;
+  width: 100%;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+// Start
+
+.header {
+
+    height: 100px;
+    width: 100vw;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-family: Raleway;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 30px;
+        line-height: 35px;
+        text-align: center;
+        color: #FA0303;
+        }
+}
+
+.include {
+    width: 200px;
+    height: 50px;
+    background-color: #f8f8f8;
+    // margin-top: 25px;
+    margin: 25px auto 25px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    span {
+        font-size: 20px;
+        color: #3a3a3a;
+        padding-left: 5px;
+    }
+}
+
+form {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.taxSection {
+    display: none;
+}
+
+.taxInput {
+    display: inline-block;
+}
+
+.iAmOn {
+    display: inline;
+}
+
+.formItem {
+    margin: 10px;
+    background-color: white;
+}
+
+.textBoxWarn {
+    border-color: red;
+    color: red;
+}
+
+.textBoxWarn::placeholder {
+    border-color: red;
+    color: red;
+}
+
+.theButton {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: orange;
+}
+
+/* toggle switch */
+/* Variables */
+
+:root {
+    --main-size: 1.5rem;
+    --secondary-size: 1.2rem;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.switchLabel {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 40px;
+    height: var(--main-size);
+    background: grey;
+    display: block;
+    border-radius: var(--main-size);
+    position: relative;
+}
+
+.switchLabel:after {
+    content: '';
+    position: absolute;
+    top: 2.45px;
+    left: 3px;
+    width: var(--secondary-size);
+    height: var(--secondary-size);
+    background: #fff;
+    border-radius: var(--secondary-size);
+    transition: 0.3s;
+}
+
+input[type=checkbox]:checked+label {
+    background: red;
+}
+
+input:checked+label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+.switchLabel:active:after {
+    width: 1.5rem;
+}
