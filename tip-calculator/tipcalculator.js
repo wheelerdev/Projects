@@ -9,10 +9,13 @@
         let ifPeople;
         let ifTax;
 
+        const lineStyle = document.querySelector('.aLine');
+        const ifMany = document.getElementsByClassName('showIfMany');
+        const printTip = document.querySelector('.outputTip');
+        const printTotal = document.querySelector('.outputTotal');
         const printedOutput = document.querySelector('.output');
         const buttonClick = document.getElementById('goButton');
 
-        // let selectedState = document.getElementById('state').value;
         let taxGroup = document.querySelector('.taxSection');
         let billVal = document.getElementById("myBillInput");
         let tipVal = document.getElementById("myTipInput");
@@ -58,6 +61,20 @@
             return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
         }
 
+        // change innerHTML of showIfMany elements. Convert HTML Collection to array then loop.
+        function perPerson () {
+            let tempThing = [...ifMany];
+            tempThing.forEach(element => {
+                if (peopleCount >= 2) {
+                    element.innerHTML = `per person`;
+                    lineStyle.classList.add('aLineThick');
+                } else {
+                    element.innerHTML = ``;
+                    lineStyle.classList.remove('aLineThick');
+                }
+            });
+        }
+
         function getBillAmount() {
 
 
@@ -65,12 +82,15 @@
             let billPlusTip = Math.floor((billVal.value * `1.${tipVal.value}`) * 100) / 100;
             peopleCount = document.getElementById("people").value;
 
+
             if (peopleCount >= 2) {
                 ifPeople = 'per person ';
             } else {
                 ifPeople = "";
             }
-           
+
+            perPerson();
+        
             // Plug either tax field into myTax variable
             if (taxAmount.value) {
                 myTax = Number(taxAmount.value);
@@ -110,6 +130,9 @@
             } else {
                 billVal.classList.remove('textBoxWarn');
                 tipVal.classList.remove('textBoxWarn');
-                printedOutput.innerHTML = `Your ${ifTax}tip is ${currencyFormat(tipAmount)}. The total ${ifPeople}including tip will be ${currencyFormat((billPlusTip + myTax) / peopleCount)}.`;
+                // perPerson();
+                // printedOutput.innerHTML = `Your ${ifTax}tip is ${currencyFormat(tipAmount)}. The total ${ifPeople}including tip will be ${currencyFormat((billPlusTip + myTax) / peopleCount)}.`;
+                printTip.innerHTML = `Tip: ${currencyFormat(tipAmount / peopleCount)}`;
+                printTotal.innerHTML = `Total: ${currencyFormat((billPlusTip + myTax) / peopleCount)}`;
             };
         }

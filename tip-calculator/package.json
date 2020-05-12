@@ -1,0 +1,11 @@
+{
+  "name": "tip-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tipcalculator.js",
+  "scripts": {
+    "test": "console.log('i work');"
+  },
+  "author": "",
+  "license": "ISC"
+}
