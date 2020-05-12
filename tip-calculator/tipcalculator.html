@@ -36,42 +36,51 @@
 
     <form action="">
 
-        <div>
-            <label for="bill">Bill Amount (pre-tax)</label>
+        <div class="formItem billAmountStyle">
+            <label for="bill">Your Bill (pre-tax)</label>
             <input class="formItem" type="number" name="bill" placeholder="Enter bill amount" id="myBillInput" value="100">
         </div>
 
-
-        <select name="percent" class="formItem" id="myTipInput">
-            <option value="">Select Tip Percentage</option>
-            <option value="5">5%</option>
-            <option value="10" selected>10%</option>
-            <option value="15">15%</option>
-            <option value="20">20%</option>
-            <option value="25">25%</option>
-        </select>
-
-        <select name="people" class="formItem" id="people">
-            <option value="">How many people?</option>
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-        </select>
+        <div class="lowerRow mobileWidth">
+            <div class="formItem">
+            <label for="percent">Tip %</label>
+                <select name="percent" class="dropDownItem" id="myTipInput">
+                    <option value="">Select Tip Percentage</option>
+                    <option value="5">5%</option>
+                    <option value="10" class="itsGreen" selected>10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>
+                    <option value="25">25%</option>
+                </select>
+            </div>
+    
+            <div class="formItem">
+            <label for="people"> Number of People</label>
+                <select name="people" class="dropDownItem" id="people">
+                    <option value="">How many people?</option>
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+        </div>
 
         <div class="taxSection">
-            <span>Enter tax by:</span>
-            <label for="taxAmountRadio">Amount</label>
-            <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();" checked>
-            <label for="taxRateRadio">Rate</label>
-            <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
-            <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount" id="tax_Amount">
-            <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate"
-                style="display: none;">
+            <div class="taxInside mobileWidth">
+                <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();" checked>
+                <label for="taxAmountRadio">Tax by Amount</label>
+                <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
+                <label for="taxRateRadio">Tax by %</label>
+            </div>
+            <div class="taxFields">
+                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate" style="display: none;">
+                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount" id="tax_Amount">
+            </div>
         </div>
 
         <!-- Original: -->
@@ -100,88 +109,20 @@
         <p class="output"></p>
     </div>
 
-
-    <script src="./tipcalculator.js">
-
-
-
-        // // To Do
-        // // -sort out more elegant way to figure state tax; loop over object etc
-        // // -secure from XSS?
-        // // -pre-tax/post/tax selector
-
-        // let myTax;
-        // let peopleCount;
-        // let ifPeople;
-
-        // const printedOutput = document.querySelector('.output');
-        // const buttonClick = document.getElementById('goButton');
-
-        // // let selectedState = document.getElementById('state').value;
-        // let taxGroup = document.querySelector('.taxSection');
-        // let billVal = document.getElementById("myBillInput");
-        // let tipVal = document.getElementById("myTipInput");
-        // let taxAmount = document.getElementById("tax_Amount")
-        // let taxRate = document.getElementById("tax_Rate")
-        // let taxSwitch = document.getElementById("switch");
-
-        // function taxToggle() {
-        //     taxGroup.classList.toggle('iAmOn');
-        // }
+    <div class="outputContainer">
+        <div class="outputItem">
+            <h2 class="outputTip">Tip: $00.00</h2>
+            <p class="showIfMany">per person</p>
+        </div>
+        <span class="aLine"></span>
+        <div class="outputItem">
+            <h2 class="outputTotal">Total: $00.00</h2>
+            <p class="showIfMany">per person</p>
+        </div>
+    </div>
 
 
-
-        // taxSwitch.addEventListener('click', taxToggle);
-
-
-
-        // buttonClick.addEventListener('click', getBillAmount);
-
-
-        // // Currency will show a string with commas and digits to the hundredth place.
-        // function currencyFormat(num) {
-        //     return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        // }
-
-        // function getBillAmount() {
-
-
-        //     let tipAmount = Math.floor((billVal.value * `0.${tipVal.value}`) * 100) / 100;
-        //     let billPlusTip = Math.floor((billVal.value * `1.${tipVal.value}`) * 100) / 100;
-        //     peopleCount = document.getElementById("people").value;
-
-        //     if (peopleCount >= 2) {
-        //         ifPeople = 'per person ';
-        //     } else {
-        //         ifPeople = "";
-        //     }
-
-        //     console.log(taxAmount.value);
-        //     console.log(taxRate.value);
-
-
-        //     // Form validation logic
-        //     if ((tipVal.value == '') && (billVal.value == '')) {
-        //         tipVal.classList.add('textBoxWarn');
-        //         billVal.classList.add('textBoxWarn');
-        //         printedOutput.innerHTML = `Select bill amount & tip percentage`;
-        //     } else if (billVal.value == '') {
-        //         billVal.classList.add('textBoxWarn');
-        //         tipVal.classList.remove('textBoxWarn');
-        //         billVal.focus();
-        //         printedOutput.innerHTML = `Enter bill amount`;
-        //     } else if (tipVal.value == '') {
-        //         tipVal.classList.add('textBoxWarn');
-        //         tipVal.focus();
-        //         printedOutput.innerHTML = `Select tip percentage`;
-        //     } else {
-        //         billVal.classList.remove('textBoxWarn');
-        //         tipVal.classList.remove('textBoxWarn');
-        //         printedOutput.innerHTML = `Your tip is ${currencyFormat(tipAmount)} and the total ${ifPeople}including tip will be ${currencyFormat(billPlusTip / peopleCount)}.`;
-        //     };
-        // }
-
-    </script>
+    <script src="./tipcalculator.js"></script>
 </body>
 
 </html>

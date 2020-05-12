@@ -1,6 +1,7 @@
 
 
 // To Do
+        // -when include tax is selected and field is left empty, if you click calculate it outputs NaN. Modify to either give a warning or ignore.
         // -secure from XSS?
 
         let myTax;
