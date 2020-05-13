@@ -6,22 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tip Calculator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&family=Roboto&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&family=Roboto:wght@300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<!-- <style>
-    label {
-        display: block;
-        font: 1rem 'Fira Sans', sans-serif;
-    }
-
-    input,
-    label {
-        margin: .4rem 0;
-    }
-</style> -->
 
 <body>
 
@@ -38,24 +27,24 @@
 
         <div class="formItem billAmountStyle">
             <label for="bill">Your Bill (pre-tax)</label>
-            <input class="formItem" type="number" name="bill" placeholder="Enter bill amount" id="myBillInput" value="100">
+            <input class="formItem" type="number" name="bill" placeholder="Enter bill amount" id="myBillInput">
         </div>
 
         <div class="lowerRow mobileWidth">
             <div class="formItem">
-            <label for="percent">Tip %</label>
+                <label for="percent">Tip %</label>
                 <select name="percent" class="dropDownItem" id="myTipInput">
                     <option value="">Select Tip Percentage</option>
                     <option value="5">5%</option>
-                    <option value="10" class="itsGreen" selected>10%</option>
-                    <option value="15">15%</option>
+                    <option value="10">10%</option>
+                    <option value="15" selected>15%</option>
                     <option value="20">20%</option>
                     <option value="25">25%</option>
                 </select>
             </div>
     
             <div class="formItem">
-            <label for="people"> Number of People</label>
+                <label for="people"> Number of People</label>
                 <select name="people" class="dropDownItem" id="people">
                     <option value="">How many people?</option>
                     <option value="1" selected>1</option>
@@ -73,31 +62,15 @@
         <div class="taxSection">
             <div class="taxInside mobileWidth">
                 <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();" checked>
-                <label for="taxAmountRadio">Tax by Amount</label>
+                <label for="taxAmountRadio">Tax Amount</label>
                 <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
-                <label for="taxRateRadio">Tax by %</label>
+                <label for="taxRateRadio">Tax Rate</label>
             </div>
             <div class="taxFields">
                 <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate" style="display: none;">
                 <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount" id="tax_Amount">
             </div>
         </div>
-
-        <!-- Original: -->
-        <!-- <div class="taxSection">
-            <span>Enter tax by:</span>
-            <div class="taxInput">
-                <label for="taxAmountRadio">Amount</label>
-                <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();">
-                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount"
-                    id="tax_Amount">
-            </div>
-            <div class="taxInput">
-                <label for="taxRateRadio">Rate</label>
-                <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
-                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate">
-            </div>
-        </div> -->
 
     </form>
 
@@ -121,6 +94,9 @@
         </div>
     </div>
 
+    <footer>
+        <p>Design and Coding by <a href="https://www.scottwheeler.dev">Scott Wheeler ©2020</a></p>
+    </footer>
 
     <script src="./tipcalculator.js"></script>
 </body>

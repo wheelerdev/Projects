@@ -122,7 +122,7 @@
                 billVal.classList.add('textBoxWarn');
                 tipVal.classList.remove('textBoxWarn');
                 billVal.focus();
-                printedOutput.innerHTML = `Enter bill amount`;
+                // printedOutput.innerHTML = `Enter bill amount`;
             } else if (tipVal.value == '') {
                 tipVal.classList.add('textBoxWarn');
                 tipVal.focus();

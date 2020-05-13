@@ -4,8 +4,13 @@ p,
 ul {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: normal;
+}
+
+body {
+  margin: auto;
+  max-width: 500px;
 }
 
 strong {
@@ -29,14 +34,22 @@ a:active {
 :root {
   --main-size: 1.5rem;
   --secondary-size: 1.2rem;
-  --light-grey: rgb(245,245,245);
-  --dark-grey: #3A3A3A;
+  --light-grey: rgb(245, 245, 245);
+  --dark-grey: #3a3a3a;
   --even-padding: 20px;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: red;
 }
 
 .header {
   height: 100px;
-  width: 100vw;
+  width: 100%;
   background-color: var(--light-grey);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -56,7 +69,7 @@ a:active {
   font-size: 30px;
   line-height: 35px;
   text-align: center;
-  color: #FA0303;
+  color: #fa0303;
 }
 
 .include {
@@ -168,11 +181,17 @@ form .taxSection {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 100%;
+  width: 80%;
 }
 
-.lowerRow label, .lowerRow select {
+.lowerRow label,
+.lowerRow select {
   display: block;
+}
+
+.formItem label {
+  margin-bottom: 3px;
+  color: var(--dark-grey);
 }
 
 .billAmountStyle {
@@ -180,7 +199,8 @@ form .taxSection {
   padding-bottom: var(--even-padding);
 }
 
-.billAmountStyle label, .billAmountStyle input {
+.billAmountStyle label,
+.billAmountStyle input {
   display: block;
 }
 
@@ -244,8 +264,8 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 80vw;
-  margin: auto;
+  max-width: 80%;
+  margin: 0 auto 50px auto;
 }
 
 .outputItem h2 {
@@ -271,14 +291,35 @@ button {
   width: 52px;
 }
 
+footer {
+  width: 100%;
+  background-color: var(--light-grey);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer p {
+  font-size: 12px;
+  margin: 15px 0;
+  text-align: center;
+  color: #fa0303;
+}
+
 /* toggle switch */
-input[type=checkbox] {
+input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
 }
 
-input[type=number] {
+input[type="number"] {
   background-color: var(--light-grey);
 }
 
@@ -294,7 +335,7 @@ input[type=number] {
 }
 
 .switchLabel:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 2.45px;
   left: 3px;
@@ -306,7 +347,7 @@ input[type=number] {
   transition: 0.3s;
 }
 
-input[type=checkbox]:checked + label {
+input[type="checkbox"]:checked + label {
   background: red;
 }
 
@@ -318,5 +359,58 @@ input:checked + label:after {
 
 .switchLabel:active:after {
   width: 1.5rem;
+}
+
+@media screen and (max-width: 355px) {
+  .header h1 {
+    padding: 0 20px;
+  }
+  .lowerRow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .lowerRow .formItem label:nth-of-type(1) {
+    margin-bottom: 3px;
+  }
+  .dropDownItem {
+    margin-bottom: var(--even-padding);
+  }
+  .outputContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mobileWidth {
+    margin-bottom: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mobileWidth label:nth-of-type(1) {
+    margin-bottom: 10px;
+  }
+  .taxSection {
+    margin: 0;
+  }
+  .theButton {
+    padding-top: 10px;
+  }
+  .aLine,
+  .aLineThick {
+    display: none;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
