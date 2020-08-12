@@ -199,6 +199,8 @@ form {
 }
 
 button {
+  display: flex;
+  justify-content: center;
   background-color: red;
   color: white;
   font-family: Raleway;
