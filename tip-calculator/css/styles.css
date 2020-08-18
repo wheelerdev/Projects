@@ -1,3 +1,8 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 html,
 body,
 p,
@@ -10,7 +15,8 @@ ul {
 
 body {
   margin: auto;
-  max-width: 500px;
+  margin-bottom: 70px;
+  max-width: 600px;
 }
 
 strong {
@@ -298,7 +304,10 @@ button {
 }
 
 footer {
+  bottom: 0;
+  position: absolute;
   width: 100%;
+  max-width: 600px;
   background-color: var(--light-grey);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -413,6 +422,46 @@ input:checked + label:after {
   }
   .theButton {
     padding-top: 10px;
+  }
+  .aLine,
+  .aLineThick {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .header h1 {
+    padding: 0 20px;
+  }
+  .lowerRow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .mobileWidth {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .mobileWidth label:nth-of-type(1) {
+    margin-bottom: 10px;
+  }
+  .outputContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .aLine,
   .aLineThick {
