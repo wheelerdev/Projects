@@ -1,1 +1,41 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+html {
+  position: relative;
+  min-height: 100%;
+  font-family: "Comfortaa", cursive;
+}
+
+html,
+body,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+body {
+  margin: auto;
+  margin-bottom: 70px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p,
+ul {
+  height: 100%;
+  width: 100%;
+}
+
+p {
+  font-family: "Vollkorn", serif;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+/*# sourceMappingURL=styles.css.map */
