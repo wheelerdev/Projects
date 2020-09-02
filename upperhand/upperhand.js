@@ -1,9 +1,22 @@
+//click button for result
 const mrButton = document.getElementById('gimmePhrase');
 const printedOutput = document.querySelector('.output');
 mrButton.addEventListener('click', thePhrase);
 
+// let sentence1;
+// let sentence2;
+// let sentence3;
+// let sentence4;
+
+
+
+// var items = [1,2,3,4];
+// var index = Math.floor(Math.random() * items.length);
+// items[index] = whatever;
+
+
 function thePhrase() {
-    // console.log(downer[2]);
+
     const randomDowner = downer[Math.floor(Math.random()*downer.length)];
     const randomFirstName = firstName[Math.floor(Math.random()*firstName.length)];
     const randomLastName = lastName[Math.floor(Math.random()*lastName.length)];
@@ -17,17 +30,44 @@ function thePhrase() {
     const randomPrefix = prefix[Math.floor(Math.random()*prefix.length)];
     const randomSubEra = subEra[Math.floor(Math.random()*subEra.length)];
 
-    printedOutput.innerHTML = 
-        `<p>1) “Yeah that’s pretty good I guess, for me perhaps a bit on the ${randomDowner} side. I can’t believe you’re not familiar with ${randomFirstName} ${randomLastName} though. For ${randomRegion} ${randomMedium} it's pretty heady stuff, definitely not for everyone. If you can jump right in to their ${randomPeriod} period, you’ll be blown away.</p>
-        
-        <p>Optional coup de grace: “You know the crazy thing is that ${randomLastName} was ${randomRealName}’s ${randomRelation}?"</p>
+    //sentences
+    const sentence1 = `1) “Yeah that’s pretty good I guess, for me perhaps a bit on the ${randomDowner} side. I can’t believe you’re not familiar with ${randomFirstName} ${randomLastName} though. For ${randomRegion} ${randomMedium} it's pretty heady stuff, definitely not for everyone. If you can jump right in to their ${randomPeriod} period, you’ll be blown away. <br> <br> Optional coup de grace: “You know the crazy thing is that ${randomLastName} was ${randomRealName}’s ${randomRelation}?"`;
+    
+    const sentence2 = `<p>2) Everything changed for me when I found ${randomSubEra}-${randomEra} ${randomRegion} ${randomPrefix}-${randomGenre} ${randomMedium}. My favorite artist is probably ${randomFirstName} ${randomLastName}.</p>`;
+    
+    const sentence3 = `<p>3) That was my thing for so long, then I found ${randomFirstName} ${randomLastName}. Game changer! While their most popular stuff is decent, albeit  occasionally ${randomDowner}, you really need to check out the ${randomMedium} work from their ${randomPeriod} period. They actually had a massive influence on ${randomRealName}.</p>`;
+    
+    const sentence4 = `<p>4) Oh if you like them you definitely know ${randomFirstName} ${randomLastName} right? No?! Wow well forget everything you thought you knew about ${randomSubEra}-${randomEra} ${randomRegion} ${randomPrefix}-${randomGenre}.</p>`;
+    
+    const sentences = [
+        sentence1,
+        sentence2,
+        sentence3,
+        sentence4,
+    ];
 
-        <p>2) Everything changed for me when I found ${randomSubEra}-${randomEra} ${randomRegion} ${randomPrefix}-${randomGenre} ${randomMedium}. My favorite artist is probably ${randomFirstName} ${randomLastName}.</p>
-        
-        <p>3) That was my thing for so long, then I found ${randomFirstName} ${randomLastName}. Game changer! While their most popular stuff is decent, albeit  occasionally ${randomDowner}, you really need to check out the ${randomMedium} work from their ${randomPeriod} period. They actually had a massive influence on ${randomRealName}.</p>
-        
-        <p>4) Oh if you like them you definitely know ${randomFirstName} ${randomLastName} right? No?! Wow well forget everything you thought you knew about ${randomSubEra}-${randomEra} ${randomRegion} ${randomPrefix}-${randomGenre}.</p>`
+    const sentenceIndex = Math.floor(Math.random() * sentences.length);
+
+    // printedOutput.innerHTML = `hey chief`;
+    printedOutput.innerHTML = sentences[sentenceIndex];
+    
 }
+
+
+
+
+// `<p>1) “Yeah that’s pretty good I guess, for me perhaps a bit on the ${randomDowner} side. I can’t believe you’re not familiar with ${randomFirstName} ${randomLastName} though. For ${randomRegion} ${randomMedium} it's pretty heady stuff, definitely not for everyone. If you can jump right in to their ${randomPeriod} period, you’ll be blown away.</p>
+        
+//         <p>Optional coup de grace: “You know the crazy thing is that ${randomLastName} was ${randomRealName}’s ${randomRelation}?"</p>
+
+//         <p>2) Everything changed for me when I found ${randomSubEra}-${randomEra} ${randomRegion} ${randomPrefix}-${randomGenre} ${randomMedium}. My favorite artist is probably ${randomFirstName} ${randomLastName}.</p>
+        
+//         <p>3) That was my thing for so long, then I found ${randomFirstName} ${randomLastName}. Game changer! While their most popular stuff is decent, albeit  occasionally ${randomDowner}, you really need to check out the ${randomMedium} work from their ${randomPeriod} period. They actually had a massive influence on ${randomRealName}.</p>
+        
+//         <p>4) Oh if you like them you definitely know ${randomFirstName} ${randomLastName} right? No?! Wow well forget everything you thought you knew about ${randomSubEra}-${randomEra} ${randomRegion} ${randomPrefix}-${randomGenre}.</p>`
+
+
+
 
 const firstName = [
     'Checo',
