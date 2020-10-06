@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Cooper Black";
+  src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot");
+  /* IE9*/
+  src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff2") format("woff2"),
+    /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff") format("woff"),
+    /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.ttf") format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.svg#Cooper Black") format("svg");
+  /* iOS 4.1- */
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("//db.onlinewebfonts.com/t/e8c6a63541de0a4211a9358cbe74690f.eot");
+  src: url("//db.onlinewebfonts.com/t/e8c6a63541de0a4211a9358cbe74690f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/e8c6a63541de0a4211a9358cbe74690f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/e8c6a63541de0a4211a9358cbe74690f.woff") format("woff"), url("//db.onlinewebfonts.com/t/e8c6a63541de0a4211a9358cbe74690f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/e8c6a63541de0a4211a9358cbe74690f.svg#Futura") format("svg");
+}
+
+//Variables
+:root {
+  --nice-yellow: #FFC72A;
+  --nice-orange: #F15A29;
+  --nice-brown: #603913;
+  --nice-white: #FFFFFF;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+html,
+body,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+body {
+  //   margin: auto;
+  //   margin-bottom: 70px;
+  // max-width: 600px;
+  font-family: "Futura";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 1440px;
+}
+
+.header {
+  height: 325px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--nice-brown);
+}
+
+.meBold {
+  font-weight: 600;
+}
+
+.main {
+  background-color: var(--nice-yellow);
+  // height: 100vh;
+}
+
+.main-content p {
+  z-index: 2;
+}
+
+h2 {
+  font-family: "Futura", "Arial", sans-serif;
+  font-weight: 500;
+}
+
+.all-the-bars {
+  display: flex;
+  justify-content: space-around;
+  // position: absolute;
+  z-index: -2;
+
+}
+
+.bar-container {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 165px;
+
+}
+
+.vertical-bar {
+  width: 75px;
+  height: 100vh;
+  display: inline-block;
+
+}
+
+.orange-bar {
+  background-color: var(--nice-orange);
+  // position: absolute;
+
+}
+
+.brown-bar {
+  background-color: var(--nice-brown);
+  // position: absolute;
+
+}
+
+.square-box {
+  width: 580px;
+  height: 580px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  p {
+    padding: 25px;
+  }
+}
