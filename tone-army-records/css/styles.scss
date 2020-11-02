@@ -1,18 +1,18 @@
-@font-face {
-  font-family: "Cooper Black";
-  src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot");
-  /* IE9*/
-  src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */
-    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff2") format("woff2"),
-    /* chrome firefox */
-    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff") format("woff"),
-    /* chrome firefox */
-    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.ttf") format("truetype"),
-    /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.svg#Cooper Black") format("svg");
-  /* iOS 4.1- */
-}
+// @font-face {
+//   font-family: "Cooper Black";
+//   src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot");
+//   /* IE9*/
+//   src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot?#iefix") format("embedded-opentype"),
+//     /* IE6-IE8 */
+//     url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff2") format("woff2"),
+//     /* chrome firefox */
+//     url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff") format("woff"),
+//     /* chrome firefox */
+//     url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.ttf") format("truetype"),
+//     /* chrome firefox opera Safari, Android, iOS 4.2+*/
+//     url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.svg#Cooper Black") format("svg");
+//   /* iOS 4.1- */
+// }
 
 @font-face {
   @font-face {
@@ -45,9 +45,6 @@ ul {
 }
 
 body {
-  //   margin: auto;
-  //   margin-bottom: 70px;
-  // max-width: 600px;
   font-family: "Futura";
   display: flex;
   flex-direction: column;
@@ -55,8 +52,8 @@ body {
 }
 
 .container {
-  width: 90vw;
-  // min-width: 1100px;
+  max-width: 1300px;
+  // max-width: 700px;
 }
 
 .header {
@@ -65,6 +62,16 @@ body {
   justify-content: space-around;
   align-items: center;
   color: var(--nice-brown);
+
+  img {
+    width: 28%;
+  }
+}
+
+.info-block {
+  h4 {
+    font-weight: 500;
+  }
 }
 
 .meBold {
@@ -74,7 +81,6 @@ body {
 .the-grid {
   display: grid;
   width: 100;
-  // height: 3000px;
   grid-template-columns: 1fr 1fr 1fr 1fr 15px 1fr 2fr 1fr 2fr 1fr 15px 1fr 1fr 1fr 1fr;
   // grid-template-rows: 1fr 2fr 7fr 1fr 7fr 1fr 2fr 1fr 7fr 1fr;
   grid-template-rows: auto;
@@ -130,14 +136,6 @@ h3 {
 }
 
 .box {
-  // grid-column: 3 / 14;
-  // grid-row: 2 / 3;
-  // position: relative;
-
-  // margin: auto;
-  // top: 75px;
-  // width: 580px;
-  // height: 580px;
   border-radius: 15px;
   background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -146,7 +144,7 @@ h3 {
 
   h1 {
     font-family: "Cooper Black";
-    font-size: 3.5vw;
+    font-size: 3.25vw;
     color: var(--nice-orange);
   }
 
@@ -167,14 +165,18 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin-top: 20px;
+  min-height: 115px;
 
-  h1 {
-    margin: 15px 0;
+
+  img {
+    padding-top: 20px;
+    width: 78%;
   }
 
   p {
-    margin-top: -15px;
-    margin-bottom: 15px;
+    margin-top: -10px;
+    padding-bottom: 15px;
   }
 }
 
@@ -203,6 +205,11 @@ h3 {
   img {
     width: 60%;
   }
+
+  p {
+    margin: 15px 0;
+    line-height: 1.5em;
+  }
 }
 
 .box-wide {
@@ -215,7 +222,8 @@ h3 {
 
   img {
     width: 40%;
-    margin: 15px 0;
+    max-width: 400px;
+    margin: 30px 0;
   }
 }
 
@@ -226,15 +234,17 @@ h3 {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-
-  h1 {
-    color: var(--nice-brown);
-  }
+  min-height: 112px;
 
   img {
-    width: 50px;
+    width: 45px;
+  }
+
+  .connect-image {
+    width: 20%;
   }
 }
+
 
 .box-alvarez {
   grid-column: 2 / 15;
@@ -243,27 +253,41 @@ h3 {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-
-  h1 {
-    margin: 50px 0;
-  }
+  margin-bottom: 25px; // compensate for final grid row gap blank issue
 
   img {
     width: 40%;
-    margin: 15px 0 15px 20px;
+    margin: 30px 0 30px 0px;
+  }
+
+  iframe {
+    width: 45%;
+    padding: 30px 0;
   }
 }
 
 .footer {
   grid-column: 1 / 16;
   grid-row: 12 / 13;
-  color: var(--nice-white);
   background-color: var(--nice-brown);
+  margin-top: -25px; //cover grid row gap blank issue
 }
 
 .footer-text {
-  grid-column: 4;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  grid-column: 4 / 16;
+  grid-row: 12 / 13;
+  color: var(--nice-white);
+  margin-bottom: 25px;
+  // text-decoration: none;
+
+  ul {
+    list-style-type: none;
+    line-height: 1.5em;
+  }
+
+
+  p {
+    line-height: 1.5em;
+  }
+
 }

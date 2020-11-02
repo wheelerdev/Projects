@@ -1,12 +1,4 @@
 @font-face {
-  font-family: "Cooper Black";
-  src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot");
-  /* IE9*/
-  src: url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.eot?#iefix") format("embedded-opentype"), url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff2") format("woff2"), url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.woff") format("woff"), url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.ttf") format("truetype"), url("http://db.onlinewebfonts.com/t/9a4b138bd9c8e1eba20dbd6a0bb1d832.svg#Cooper Black") format("svg");
-  /* iOS 4.1- */
-}
-
-@font-face {
   @font-face {
     font-family: "Futura";
     src: url("//db.onlinewebfonts.com/t/fd6e6c30c7d355528ba9428eea942445.eot");
@@ -50,7 +42,7 @@ body {
 }
 
 .container {
-  width: 90vw;
+  max-width: 1300px;
 }
 
 .header {
@@ -64,6 +56,14 @@ body {
       -ms-flex-align: center;
           align-items: center;
   color: var(--nice-brown);
+}
+
+.header img {
+  width: 28%;
+}
+
+.info-block h4 {
+  font-weight: 500;
 }
 
 .meBold {
@@ -160,7 +160,7 @@ h3 {
 
 .box h1 {
   font-family: "Cooper Black";
-  font-size: 3.5vw;
+  font-size: 3.25vw;
   color: var(--nice-orange);
 }
 
@@ -190,15 +190,18 @@ h3 {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin-top: 20px;
+  min-height: 115px;
 }
 
-.box-buy h1 {
-  margin: 15px 0;
+.box-buy img {
+  padding-top: 20px;
+  width: 78%;
 }
 
 .box-buy p {
-  margin-top: -15px;
-  margin-bottom: 15px;
+  margin-top: -10px;
+  padding-bottom: 15px;
 }
 
 .box-insta {
@@ -251,6 +254,11 @@ h3 {
   width: 60%;
 }
 
+.box-directions p {
+  margin: 15px 0;
+  line-height: 1.5em;
+}
+
 .box-wide {
   -ms-grid-column: 2;
   -ms-grid-column-span: 13;
@@ -274,7 +282,8 @@ h3 {
 
 .box-wide img {
   width: 40%;
-  margin: 15px 0;
+  max-width: 400px;
+  margin: 30px 0;
 }
 
 .box-connect {
@@ -296,14 +305,15 @@ h3 {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-.box-connect h1 {
-  color: var(--nice-brown);
+  min-height: 112px;
 }
 
 .box-connect img {
-  width: 50px;
+  width: 45px;
+}
+
+.box-connect .connect-image {
+  width: 20%;
 }
 
 .box-alvarez {
@@ -325,15 +335,17 @@ h3 {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-.box-alvarez h1 {
-  margin: 50px 0;
+  margin-bottom: 25px;
 }
 
 .box-alvarez img {
   width: 40%;
-  margin: 15px 0 15px 20px;
+  margin: 30px 0 30px 0px;
+}
+
+.box-alvarez iframe {
+  width: 45%;
+  padding: 30px 0;
 }
 
 .footer {
@@ -343,21 +355,27 @@ h3 {
   -ms-grid-row: 12;
   -ms-grid-row-span: 1;
   grid-row: 12 / 13;
-  color: var(--nice-white);
   background-color: var(--nice-brown);
+  margin-top: -25px;
 }
 
 .footer-text {
   -ms-grid-column: 4;
-  grid-column: 4;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -ms-grid-column-span: 12;
+  grid-column: 4 / 16;
+  -ms-grid-row: 12;
+  -ms-grid-row-span: 1;
+  grid-row: 12 / 13;
+  color: var(--nice-white);
+  margin-bottom: 25px;
+}
+
+.footer-text ul {
+  list-style-type: none;
+  line-height: 1.5em;
+}
+
+.footer-text p {
+  line-height: 1.5em;
 }
 /*# sourceMappingURL=styles.css.map */
