@@ -426,7 +426,63 @@ h3 {
 .box-contact {
   grid-column: 3 / 14;
   grid-row: 5 / 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 425px;
+
+  img {
+    padding: 20px 0;
+    width: 30%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    font-family: "Futura";
+
+
+    input {
+      margin: 15px 0px;
+      font-family: "Futura";
+      border-color: var(--nice-brown);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 3px;
+
+    }
+
+    button {
+      background-color: var(--nice-brown);
+      color: var(--nice-white);
+      border-style: none;
+      padding: 10px 10px;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+
+    textarea {
+      margin-top: 10px;
+      border-radius: 3px;
+      resize: none;
+      border-style: solid;
+      border-width: 1px;
+      // border-color: rgb(195, 195, 195);
+      border-color: var(--nice-brown);
+      font-family: "Futura";
+    }
+
+    .message-box {
+      width: 100%;
+      height: 25%;
+    }
+  }
 }
+
+
 
 //----Media Queries-----
 
@@ -546,6 +602,41 @@ h3 {
   .box-insta,
   .box-directions {
     grid-column: 3 / 8;
+  }
+
+  .box-buy-instructions {
+    grid-column: 2 / 9;
+    grid-row: 3 / 4;
+    padding: 30px 0;
+
+    .wide-buy {
+      width: 66%;
+    }
+  }
+
+  .policies {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 15px;
+
+    img {
+      width: 33%;
+    }
+  }
+
+  .policy-text {
+    width: 47%;
+  }
+
+
+  .box-contact {
+    grid-column: 3 / 8;
+    grid-row: 5 / 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 425px;
   }
 
   // .box-insta {
