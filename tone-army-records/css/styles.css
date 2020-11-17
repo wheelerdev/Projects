@@ -11,6 +11,7 @@
   --nice-orange: #F15A29;
   --nice-brown: #603913;
   --nice-white: #FFFFFF;
+  --form-text-color: grey;
   --the-rem-size: 16px;
 }
 
@@ -68,7 +69,7 @@ body h1 {
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
 }
 
 .header {
@@ -94,6 +95,10 @@ body h1 {
 
 .info-block h4 {
   font-weight: 500;
+}
+
+.info-block a {
+  color: var(--nice-brown);
 }
 
 .meBold {
@@ -216,6 +221,7 @@ h3 {
       justify-content: space-around;
   margin-top: 20px;
   min-height: 115px;
+  padding: 0 100px;
 }
 
 .box-buy a {
@@ -429,7 +435,7 @@ h3 {
   -ms-grid-row-span: 1;
   grid-row: 2 / 3;
   color: var(--nice-white);
-  margin-bottom: 25px;
+  margin: 15px 0 25px 0;
 }
 
 .footer-text ul {
@@ -484,6 +490,14 @@ h3 {
   width: 47%;
 }
 
+.policy-text p {
+  line-height: 1.4;
+}
+
+.policy-text a {
+  color: var(--nice-orange);
+}
+
 .box-contact {
   -ms-grid-column: 3;
   -ms-grid-column-span: 11;
@@ -534,6 +548,27 @@ h3 {
   border-style: solid;
   border-width: 1px;
   border-radius: 3px;
+  color: var(--form-text-color);
+}
+
+.box-contact form input::-webkit-input-placeholder,
+.box-contact form textarea::-webkit-input-placeholder {
+  color: var(--form-text-color);
+}
+
+.box-contact form input:-ms-input-placeholder,
+.box-contact form textarea:-ms-input-placeholder {
+  color: var(--form-text-color);
+}
+
+.box-contact form input::-ms-input-placeholder,
+.box-contact form textarea::-ms-input-placeholder {
+  color: var(--form-text-color);
+}
+
+.box-contact form input::placeholder,
+.box-contact form textarea::placeholder {
+  color: var(--form-text-color);
 }
 
 .box-contact form button {
@@ -552,6 +587,7 @@ h3 {
   border-style: solid;
   border-width: 1px;
   border-color: var(--nice-brown);
+  color: var(--form-text-color);
   font-family: "Futura";
 }
 
@@ -560,9 +596,18 @@ h3 {
   height: 25%;
 }
 
+@media screen and (max-width: 1200px) {
+  .box-buy {
+    padding: 0 50px;
+  }
+}
+
 @media screen and (max-width: 950px) {
   html {
     font-size: 14px;
+  }
+  .box-buy {
+    padding: 0px;
   }
 }
 
@@ -575,6 +620,22 @@ h3 {
   }
   .connect-image {
     width: 25%;
+  }
+  .policies {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .policies img {
+    width: 40%;
+  }
+  .policy-text {
+    padding-top: 25px;
+    width: 80%;
+  }
+  .box-contact img {
+    width: 40%;
   }
 }
 
@@ -680,22 +741,11 @@ h3 {
   .box-buy-instructions .wide-buy {
     width: 66%;
   }
-  .policies {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    padding-top: 15px;
-  }
   .policies img {
-    width: 33%;
+    width: 66%;
   }
   .policy-text {
-    width: 47%;
+    width: 80%;
   }
   .box-contact {
     -ms-grid-column: 3;
@@ -811,6 +861,11 @@ h3 {
   .box-wide img:nth-of-type(2),
   .box-alvarez img:nth-of-type(2) {
     margin-top: 0px;
+  }
+  .box-contact {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 7;
+    grid-column: 2 / 9;
   }
   .box-connect {
     -ms-grid-column: 3;

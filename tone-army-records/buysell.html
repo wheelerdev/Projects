@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="origin">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Tone Army Records</title>
+    <title>We Buy Used Records</title>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
                 <h3 class="meBold">We Buy & Sell Used Records</h3>
                 <h4>Hours: Wednesday - Sunday 11am - 7pm</h4>
                 <h4>1460 Washington Blvd, Suite C1, Concord CA</h4>
-                <h4>(925)305-0392</h4>
+                <h4><a href="tel:+1-925-305-0392">925-305-0392</a></h4>
             </div>
 
         </div>
@@ -38,35 +39,34 @@
                 <div class="policies">
                     <div class="policy-text">
                         <p>Turn your used CDs and Vinyl into cash at Tone Army Records (get 20% more for in store
-                            credit).We’re on the lookout for genres of all kinds, from Classic Rock to Avant-garde,
+                            credit). We’re on the lookout for genres of all kinds, from Classic Rock to Avant-garde,
                             Psychedelic to Soul, Hip-Hop, Electronic, Blues, and everything in between.</p><br>
-                        <p>Not sure what you have? Let our experienced buyers take a look to let you know.Can’t make it
+                        <p>Not sure what you have? Let our experienced buyers take a look to let you know. Can’t make it
                             during the weekday or have a busy weekend? No problem! Our buyers are on hand and
-                            ready-to-go
-                            7-days-a-week during normal business hours (10-7 Mon – Sat, 11-6 Sunday).No appointment
+                            ready-to-go 7-days-a-week during normal business hours (10-7 Mon – Sat, 11-6 Sunday). No
+                            appointment
                             needed.</p><br>
                         <p>Choose cash or 20% more for in store credit. Happy to help with load-in!</p><br>
                         <p>*We can only offer quotes on items in person, but feel free to call if you have any other
-                            questions (PHONE:503-239-7561).</p>
+                            questions (PHONE: <a href="tel:+1-925-305-0392">925-305-0392</a>).</p>
                     </div>
                     <img src="./images/shop.jpg" alt="Photo of record shop interior">
                 </div>
             </div>
-            <div class="box box-contact">
-                <!-- <div class="contact-container"> -->
+            <div class="box box-contact" id="the-connection">
                 <img src="./images/text-contact.svg" alt="Contact Us">
-                <form action=action="https://formspree.io/f/mqkgllzn" method="POST">
-                    <input type="hidden" name="_subject" value="Bolaji's Form">
+                <form class="white-text" action="https://formspree.io/f/mqkgllzn" method="POST" id="contact-form">
+                    <!-- <form class="white-text" action="https:www.google.com/" method="POST" id="contact-form"> -->
+                    <input type="hidden" name="_subject" value="Tone Army Inquiry">
                     <input type="hidden" name="_next" value="/thanks.html">
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="_replyto" placeholder="Email">
-                    <textarea name="message" cols="40" rows="10" placeholder="Message"></textarea>
-                    <!-- <input type="text" name="message" class="message-box" placeholder="Message"> -->
+                    <input id="id1" type="text" name="name" placeholder="Name">
+                    <input id="id2" type="email" name="_replyto" placeholder="Email">
+                    <textarea id="id3" name="message" cols="38" rows="10" placeholder="Message"></textarea>
                     <button type="submit">Send Email</button>
+                    <!-- <button type="button" onclick="clearContactForm()">Ch Ch Ch Changes</button> -->
                 </form>
-                <!-- </div> -->
             </div>
-            <div class="box box-connect">
+            <div class=" box box-connect">
                 <img class="connect-image" src="./images/text-connect.svg" alt="Connect on social media">
                 <a href="https://www.instagram.com/tonearmyrecords/?hl=en" class="hvr-grow" target="_blank">
                     <img src="./images/logo-insta.svg" alt="Instagram">
@@ -101,5 +101,33 @@
         </div>
 
     </div>
+
+    <script>
+        // function changeTextColor() {
+        //     // document.documentElement.style.setProperty("--form-text-color", "white");
+        //     var changes = document.getElementById('id1');
+        //     changes.style.color = 'red';
+        //     console.log(changes);
+
+
+        // }
+
+
+        function clearContactForm() {
+            let nameVal = document.getElementById('id1').value;
+            let emailVal = document.getElementById('id2').value;
+            let messageVal = document.getElementById('id3').value;
+
+            if (nameVal || emailVal || messageVal != "") {
+                document.getElementById('contact-form').reset();
+            }
+        }
+
+        function timerFunction() {
+            window.setTimeout(clearContactForm, 100);
+        }
+
+        window.addEventListener("unload", timerFunction());
+    </script>
 
 </body>
