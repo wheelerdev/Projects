@@ -492,6 +492,7 @@ h3 {
 
 .policy-text p {
   line-height: 1.4;
+  font-size: 16px;
 }
 
 .policy-text a {
@@ -612,9 +613,6 @@ h3 {
 }
 
 @media screen and (max-width: 805px) {
-  html {
-    font-size: 13px;
-  }
   .box-connect a {
     width: 40px;
   }
@@ -881,9 +879,6 @@ h3 {
 }
 
 @media screen and (max-width: 390px) {
-  html {
-    font-size: 12px;
-  }
   .the-grid {
     row-gap: 12px;
   }
