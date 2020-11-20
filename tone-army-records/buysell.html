@@ -57,15 +57,17 @@
             <div class="box box-contact" id="the-connection">
                 <img src="./images/text-contact.svg" alt="Contact Us">
                 <form class="white-text" action="https://formspree.io/f/mqkgllzn" method="POST" id="contact-form">
-                    <!-- <form class="white-text" action="https:www.google.com/" method="POST" id="contact-form"> -->
-                    <input type="hidden" name="_subject" value="Tone Army Inquiry">
-                    <input type="hidden" name="_next" value="/thanks.html">
-                    <input id="id1" type="text" name="name" placeholder="Name">
-                    <input id="id2" type="email" name="_replyto" placeholder="Email">
-                    <textarea id="id3" name="message" cols="38" rows="10" placeholder="Message"></textarea>
-                    <button type="submit">Send Email</button>
-                    <!-- <button type="button" onclick="clearContactForm()">Ch Ch Ch Changes</button> -->
-                </form>
+                    <form class="white-text" action="https:www.google.com/" method="POST" id="contact-form">
+                        <div class="output"></div>
+                        <input type="hidden" name="_subject" value="Tone Army Inquiry">
+                        <input type="hidden" name="_next" value="/thanks.html">
+                        <input id="id1" class="" type="text" name="name" placeholder="Name" required>
+                        <input id="id2" type="email" name="_replyto" placeholder="Email" required>
+                        <textarea id="id3" name="message" cols="38" rows="10" placeholder="Message" required></textarea>
+                        <button type="submit">Send Email</button>
+                        <!-- <button type="button" onclick="formValidation()">I Need Validation</button> -->
+                        <!-- <button type="button" onclick="clearContactForm()">Clear Form</button> -->
+                    </form>
             </div>
             <div class=" box box-connect">
                 <img class="connect-image" src="./images/text-connect.svg" alt="Connect on social media">
@@ -75,12 +77,12 @@
                 <a href="https://www.facebook.com/tonearmyrecords" class="hvr-grow" target="_blank">
                     <img src="./images/logo-fb.svg" alt="Facebook">
                 </a>
-                <a href="https://www.youtube.com/watch/?v=ZpNIAUuDtQE" class="hvr-grow" target="_blank">
+                <a href="https://www.youtube.com/channel/UCTr6V6LZnjhSr1ypnH2rD5A" class="hvr-grow" target="_blank">
                     <img src="./images/logo-yt.svg" alt="Youtube">
                 </a>
-                <a href="https://twitter.com/MichaelSesh85" class="hvr-grow" target="_blank">
+                <!-- <a href="https://twitter.com/" class="hvr-grow" target="_blank">
                     <img src="./images/logo-twitter.svg" alt="Twitter">
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -113,6 +115,8 @@
 
         // }
 
+        // const printedOutput = document.querySelector('.output');
+
 
         function clearContactForm() {
             let nameVal = document.getElementById('id1').value;
@@ -129,6 +133,42 @@
         }
 
         window.addEventListener("unload", timerFunction());
+
+
+        // function formValidation() {
+        //     let nameVal = document.getElementById('id1');
+        //     let emailVal = document.getElementById('id2');
+        //     let messageVal = document.getElementById('id3');
+
+        //     if ((nameVal.value == '') && (emailVal.value == '') && (messageVal.value == '')) {
+        //         nameVal.classList.add('textBoxWarn');
+        //         emailVal.classList.add('textBoxWarn');
+        //         messageVal.classList.add('textBoxWarn');
+        //         printedOutput.innerHTML = `*Please enter Name, email, and message then resubmit.`;
+        //     } else if (nameVal.value == '') {
+        //         nameVal.classList.add('textBoxWarn');
+        //         emailVal.classList.remove('textBoxWarn');
+        //         messageVal.classList.remove('textBoxWarn');
+        //         nameVal.focus();
+        //         // printedOutput.innerHTML = `Select tip percentage`;
+        //     } else if (emailVal.value == '') {
+        //         emailVal.classList.add('textBoxWarn');
+        //         nameVal.classList.remove('textBoxWarn');
+        //         messageVal.classList.remove('textBoxWarn');
+        //         emailVal.focus();
+        //         // printedOutput.innerHTML = `Enter bill amount`;
+        //     } else if (messageVal.value == '') {
+        //         messageVal.classList.add('textBoxWarn');
+        //         nameVal.classList.remove('textBoxWarn');
+        //         emailVal.classList.remove('textBoxWarn');
+        //         messageVal.focus();
+        //         // printedOutput.innerHTML = `Enter bill amount`;
+        //     } else {
+        //         nameVal.classList.remove('textBoxWarn');
+        //         emailVal.classList.remove('textBoxWarn');
+        //         messageVal.classList.remove('textBoxWarn');
+        //     }
+        // }
     </script>
 
 </body>
