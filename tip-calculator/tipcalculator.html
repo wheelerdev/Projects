@@ -8,95 +8,104 @@
     <title>Tip Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&family=Roboto:wght@300&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 
 <body>
 
-    <div class="header">
-        <h1>Let's Calculate your Tip</h1>
-    </div>
-
-    <div class="include">
-        <span>Include Tax</span>
-        <input type="checkbox" id="switch"><label for="switch" class="switchLabel">Toggle</label>
-    </div>
-
-    <form action="">
-
-        <div class="formItem billAmountStyle">
-            <label for="bill">Your Bill (pre-tax)</label>
-            <input class="formItem" type="number" name="bill" placeholder="Enter bill amount" id="myBillInput">
+    <div class="container">
+        <div class="header">
+            <h1>Just the Tip.</h1>
         </div>
 
-        <div class="lowerRow mobileWidth">
-            <div class="formItem">
-                <label for="percent">Tip %</label>
-                <select name="percent" class="dropDownItem" id="myTipInput">
-                    <option value="">Select Tip Percentage</option>
-                    <option value="5">5%</option>
-                    <option value="10">10%</option>
-                    <option value="15" selected>15%</option>
-                    <option value="20">20%</option>
-                    <option value="25">25%</option>
-                </select>
+
+        <div class="blue-box">
+            <div class="include">
+                <span>Include Tax</span>
+                <input type="checkbox" id="switch"><label for="switch" class="switchLabel">Toggle</label>
             </div>
-    
-            <div class="formItem">
-                <label for="people"> Number of People</label>
-                <select name="people" class="dropDownItem" id="people">
-                    <option value="">How many people?</option>
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                </select>
+
+            <form action="">
+
+                <div class="formItem billAmountStyle">
+                    <label for="bill">Your Bill (pre-tax)</label>
+                    <input class="formItem" type="number" name="bill" placeholder="Enter bill amount" id="myBillInput">
+                </div>
+
+                <div class="lowerRow mobileWidth">
+                    <div class="formItem">
+                        <label for="percent">Tip %</label>
+                        <select name="percent" class="dropDownItem" id="myTipInput">
+                            <option value="">Select Tip Percentage</option>
+                            <option value="05">5%</option>
+                            <option value="10">10%</option>
+                            <option value="15" selected>15%</option>
+                            <option value="20">20%</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </div>
+
+                    <div class="formItem">
+                        <label for="people"> Number of People</label>
+                        <select name="people" class="dropDownItem" id="people">
+                            <!-- <option value="">How many people?</option> -->
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="taxSection">
+                    <div class="taxInside mobileWidth">
+                        <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();" checked>
+                        <label for="taxAmountRadio">Tax Amount</label>
+                        <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
+                        <label for="taxRateRadio">Tax Rate</label>
+                    </div>
+                    <div class="taxFields">
+                        <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate"
+                            id="tax_Rate" style="display: none;">
+                        <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount"
+                            id="tax_Amount">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="theButton">
+            <button class="formItem" type="button" id="goButton">Calculate</button>
+        </div>
+
+        <div>
+            <p class="output"></p>
+        </div>
+
+        <div class="outputContainer">
+            <div class="outputItem">
+                <h2 class="outputTip">Tip: $00.00</h2>
+                <p class="showIfMany"></p>
+            </div>
+            <span class="aLine"></span>
+            <div class="outputItem">
+                <h2 class="outputTotal">Total: $00.00</h2>
+                <p class="showIfMany"></p>
             </div>
         </div>
 
-        <div class="taxSection">
-            <div class="taxInside mobileWidth">
-                <input type="radio" name="tax" id="taxAmountRadio" onclick="showCorrectTaxField();" checked>
-                <label for="taxAmountRadio">Tax Amount</label>
-                <input type="radio" name="tax" id="taxRateRadio" onclick="showCorrectTaxField();">
-                <label for="taxRateRadio">Tax Rate</label>
-            </div>
-            <div class="taxFields">
-                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Rate" id="tax_Rate" style="display: none;">
-                <input class="formItem" value="" type="number" name="tax" placeholder="Enter Tax Amount" id="tax_Amount">
-            </div>
-        </div>
-
-    </form>
-
-    <div class="theButton">
-        <button class="formItem" type="button" id="goButton">Calculate</button>
+        <!-- <footer>
+            <p>Design and Coding by <a href="https://www.scottwheeler.dev">Scott Wheeler ©2020</a></p>
+        </footer> -->
     </div>
 
-    <div>
-        <p class="output"></p>
-    </div>
-
-    <div class="outputContainer">
-        <div class="outputItem">
-            <h2 class="outputTip">Tip: $00.00</h2>
-            <p class="showIfMany"></p>
-        </div>
-        <span class="aLine"></span>
-        <div class="outputItem">
-            <h2 class="outputTotal">Total: $00.00</h2>
-            <p class="showIfMany"></p>
-        </div>
-    </div>
-
-    <footer>
-        <p>Design and Coding by <a href="https://www.scottwheeler.dev">Scott Wheeler ©2020</a></p>
-    </footer>
 
     <script src="./tipcalculator.js"></script>
 </body>

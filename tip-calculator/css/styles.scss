@@ -17,8 +17,11 @@ ul {
 
 body {
   margin: auto;
-  margin-bottom: 70px;
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // margin-bottom: 70px;
+  // max-width: 600px;
 }
 
 strong {
@@ -47,6 +50,9 @@ a:active {
   --secondary-size: 1.2rem;
   --light-grey: rgb(245, 245, 245);
   --dark-grey: #3a3a3a;
+  --the-brown: #780000;
+  --the-blue: rgba(82, 162, 204, 0.8);
+  --the-light-blue: rgba(82, 162, 204, 0.08);
   --even-padding: 20px;
   // --light-grey: #f8f8f8;
 }
@@ -56,34 +62,50 @@ a:visited,
 a:link,
 a:active {
   text-decoration: none;
-  color: red;
+  color: var(--the-blue);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+  max-width: 600px;
 }
 
 .header {
   height: 100px;
   width: 100%;
-  background-color: var(--light-grey);
+  // background-color: var(--light-grey);
+  padding: 30px 0 15px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 
   h1 {
-    font-family: Raleway;
-    font-style: italic;
+    font-family: 'Dosis', sans-serif;
     font-weight: 300;
-    font-size: 30px;
+    font-size: 64px;
     line-height: 35px;
     text-align: center;
-    color: #fa0303;
+    color: var(--the-brown);
   }
 }
 
+.blue-box {
+  background-color: var(--the-light-blue);
+  border-radius: 30px;
+  width: 95vw;
+  max-width: 600px;
+
+}
+
 .include {
-  width: 200px;
+  width: 175px;
   height: 50px;
-  background-color: var(--light-grey);
+  // background-color: var(--light-grey);
   // margin-top: 25px;
-  margin: 25px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -115,7 +137,7 @@ form {
 
 .taxSection {
   display: none;
-  background-color: var(--light-grey);
+  // background-color: var(--light-grey);
   margin: (var(--even-padding)) auto 0;
 }
 
@@ -123,6 +145,8 @@ form {
   display: flex;
   justify-content: space-around;
   padding: 15px 0px 15px 0px;
+  margin-top: -30px;
+  max-width: 350px;
 
   input[type="radio"] {
     opacity: 0;
@@ -130,10 +154,10 @@ form {
     width: 0;
   }
 
-  input[type="radio"]:checked + label {
+  input[type="radio"]:checked+label {
     background-color: #e5e5e5;
     color: var(--dark-grey);
-    background-color: red;
+    background-color: var(--the-blue);
     color: white;
   }
 
@@ -152,7 +176,7 @@ form {
 .taxFields {
   display: flex;
   justify-content: center;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 .taxInput {
@@ -167,6 +191,7 @@ form {
   display: flex;
   justify-content: space-between;
   width: 80%;
+  padding-bottom: 40px;
 
   label,
   select {
@@ -182,6 +207,7 @@ form {
 .billAmountStyle {
   margin: auto;
   padding-bottom: var(--even-padding);
+
   label,
   input {
     display: block;
@@ -191,28 +217,28 @@ form {
 
 .dropDownItem {
   background-color: var(--light-grey);
-  // background-color: red;
+  width: 140px;
+  // background-color: var(--the-blue);
 }
 
 .textBoxWarn {
-  border-color: red;
-  color: red;
+  border-color: var(--the-blue);
+  color: var(--the-blue);
 }
 
 .textBoxWarn::placeholder {
-  border-color: red;
-  color: red;
+  border-color: var(--the-blue);
+  color: var(--the-blue);
 }
 
 button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: var(--the-blue);
   color: white;
-  font-family: Raleway;
-  font-style: italic;
-  font-weight: 300;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
   font-size: 30px;
   width: 165px;
   height: 52px;
@@ -236,6 +262,7 @@ button {
 
 .outputItem {
   h2 {
+    color: var(--the-brown);
     margin-bottom: 5px;
     white-space: nowrap;
   }
@@ -275,7 +302,7 @@ footer {
     font-size: 12px;
     margin: 15px 0;
     text-align: center;
-    color: #fa0303;
+    color: var(--the-blue);
   }
 }
 
@@ -314,11 +341,11 @@ input[type="number"] {
   transition: 0.3s;
 }
 
-input[type="checkbox"]:checked + label {
-  background: red;
+input[type="checkbox"]:checked+label {
+  background: var(--the-blue);
 }
 
-input:checked + label:after {
+input:checked+label:after {
   left: calc(100% - 3px);
   transform: translateX(-100%);
 }
@@ -379,45 +406,51 @@ input:checked + label:after {
     display: none;
   }
 }
-@media screen and (max-width: 355px) {
-  .header h1 {
-    padding: 0 20px;
-  }
-  .lowerRow {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-  //   .lowerRow .formItem {
-  //     padding-bottom: var(--even-padding);
-  //   }
-  .mobileWidth {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-  .mobileWidth label:nth-of-type(1) {
-    margin-bottom: 10px;
-  }
-  .outputContainer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-  .aLine,
-  .aLineThick {
-    display: none;
-  }
-}
+
+// @media screen and (max-width: 355px) {
+//   .header h1 {
+//     padding: 0 20px;
+//   }
+
+//   .lowerRow {
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//   }
+
+//   //   .lowerRow .formItem {
+//   //     padding-bottom: var(--even-padding);
+//   //   }
+//   .mobileWidth {
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//   }
+
+//   .mobileWidth label:nth-of-type(1) {
+//     margin-bottom: 10px;
+//   }
+
+//   .outputContainer {
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//   }
+
+//   .aLine,
+//   .aLineThick {
+//     display: none;
+//   }
+// }
